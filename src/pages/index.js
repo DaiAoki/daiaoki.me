@@ -3,7 +3,7 @@ import MockBookPro from '~/components/MockBookPro'
 const Index = props => (
   <>
     <main className="main">
-      <MockBookPro>
+      <MockBookPro style={{zIndex: 1}}>
         <div className="screen">
           <div className="background">
             <img src="/assets/images/mojave.jpg" alt="Mojave Wallpaper" className="usme-logo__sub"/>
@@ -21,6 +21,18 @@ const Index = props => (
           </div>
         </div>
       </MockBookPro>
+      <div className="desk">
+        <div className="desk__board"/>
+        <div className="desk__board"/>
+        <div className="desk__board"/>
+        <div className="desk__board"/>
+        <div className="desk__board"/>
+        <div className="desk__board"/>
+        <div className="desk__board"/>
+        <div className="desk__board"/>
+        <div className="desk__board"/>
+        <div className="desk__board"/>
+      </div>
     </main>
     <style jsx>
       {`
@@ -30,6 +42,28 @@ const Index = props => (
           align-items: center;
           height: 100vh;
           width: 100%;
+          background: linear-gradient(to right, rgb(243,240,229), rgb(233,225,218));
+          position: relative;
+        }
+        .desk {
+          position: absolute;
+          bottom: 0;
+          height: 60vh;
+          width: 180%;
+          background-color: rgba(118,104,81,1);
+          display: flex;
+          transform: perspective(200px) rotateX(30deg);
+          &__board {
+            height: 100%;
+            width: calc(100% / 10);
+            min-width: calc(100% / 10);
+            flex-basis: calc(100% / 10);
+            background-image: url(/assets/images/wood.png);
+            background-repeat: repeat;
+            border-right: solid 1px #1c1c1c;
+            border-left: solid 1px #1c1c1c;
+          　box-shadow: -4px 0px 4px -1px #333, 4px 0px 4px -1px #333;
+          }
         }
         .screen {
           height: 100%;
@@ -131,6 +165,83 @@ const Index = props => (
               height: 10px;
               border-top: 2px solid #5a5a5a;
               border-right: 2px solid #5a5a5a;
+            }
+          }
+        }
+        @media screen and (max-width: 768px) {
+          .icon {
+            height: 48px;
+            width: 48px;
+          }
+          .name {
+            font-size: 1.3rem;
+            margin: 12px 0 20px;
+          }
+          .password {
+            width: 160px;
+            &__form {
+              height: 20px;
+            }
+            &__form-text {
+              font-size: 1.0rem;
+            }
+            &__submit {
+              height: 16px;
+              width: 16px;
+              min-width: 16px;
+              flex-basis: 16px;
+              &::before{
+                left: 4px;
+                width: 9px;
+                height: 2px;
+              }
+              &::after{
+                left: 4px;
+                width: 8px;
+                height: 8px;
+              }
+            }
+          }
+          @media screen and (max-width: 420px) {
+            .icon {
+              height: 24px;
+              width: 24px;
+            }
+            .name {
+              font-size: 1.0rem;
+              margin: 4px 0 8px;
+              transform: scale(0.7);
+            }
+            .password {
+              width: 96px;
+              &__form {
+                height: 14px;
+                margin-right: 4px;
+              }
+              &__form-text {
+                left: -10px;
+                font-size: 1.0rem;
+                transform: translateY(-50%) scale(0.6);
+              }
+              &__submit {
+                height: 14px;
+                width: 14px;
+                min-width: 14px;
+                flex-basis: 14px;
+                transform: scale(0.8);
+                &::before{
+                  left: 3px;
+                  width: 8px;
+                  height: 1px;
+                }
+                &::after{
+                  left: 5px;
+                  width: 6px;
+                  height: 6px;
+                  border-top: 1px solid #5a5a5a;
+                  border-right: 1px solid #5a5a5a;
+                }
+              }
             }
           }
         }

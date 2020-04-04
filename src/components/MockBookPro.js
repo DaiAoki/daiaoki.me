@@ -2,14 +2,16 @@ import React from 'react'
 
 const MockBookPro = props => (
   <>
-    <div className="mockbook">
+    <div className="mockbook" style={props.style}>
       <div className="mockbook__display">
         <div className="mockbook__outer-frame">
           <div className="mockbook__middle-frame">
             <div className="mockbook__inner-frame">
               <div className="mockbook__screen">
                 <div className="mockbook__screen-inner">{ props.children }</div>
-                <div className="mockbook__name">Mockbook Pro</div>
+                <div className="mockbook__name">
+                  <span>Mockbook Pro</span>
+                </div>
               </div>
             </div>
           </div>
@@ -22,7 +24,8 @@ const MockBookPro = props => (
     <style jsx>
       {`
         .mockbook {
-          width: 94%;
+          width: 92%;
+          max-width: 980px;
           &__display {
             position: relative;
             width: 92%;
@@ -88,11 +91,15 @@ const MockBookPro = props => (
             width: 100%;
             color: #c8cacb;
             background-color: #272626;
-            font-size: 12px;
+            line-height: 1;
             text-align: center;
-            padding: 2px 0 10px;
+            padding: 6px 0 10px;
             border-bottom-left-radius: 7px;
             border-bottom-right-radius: 7px;
+            span {
+              display: inline-block;
+              font-size: 1.2rem;
+            }
           }
           &__keyboard {
             background-color: #909496;
@@ -129,6 +136,74 @@ const MockBookPro = props => (
             background-color: #515456;
             border-radius: 0 0 180px 180px/ 0 0 12px 12px;
             box-shadow: inset 0 -2px 6px 0 #000;
+          }
+        }
+        @media screen and (max-width: 768px) {
+          .mockbook {
+            &__screen-inner {
+              border-radius: 9px;
+              padding: 16px 8px 6px;
+              &:before {
+                height: 6px;
+                width: 6px;
+                top: 6px;
+              }
+            }
+            &__name {
+              padding: 4px 0 10px;
+              span {
+                font-size: 1rem;
+              }
+            }
+            &__keyboard {
+              border-width: 2px 4px 0 4px;
+              transform: translateY(-7px);
+              &:before {
+                padding-top: 0.8%;
+              }
+              &:after {
+                height: 3px;
+                width: 8%;
+              }
+            }
+            &__bottom {
+              bottom: -10px;
+              height: 10px;
+            }
+          }
+        }
+        @media screen and (max-width: 420px) {
+          .mockbook {
+            &__screen-inner {
+              padding: 8px 5px 3px;
+              &:before {
+                height: 3px;
+                width: 3px;
+                top: 3px;
+              }
+            }
+            &__name {
+              padding: 0 0 6px;
+              span {
+                font-size: 1rem;
+                transform: scale(0.6);
+              }
+            }
+            &__keyboard {
+              border-width: 2px 4px 0 4px;
+              transform: translateY(-7px);
+              &:before {
+                padding-top: 0.8%;
+              }
+              &:after {
+                height: 3px;
+                width: 8%;
+              }
+            }
+            &__bottom {
+              bottom: -6px;
+              height: 6px;
+            }
           }
         }
       `}
