@@ -5,19 +5,30 @@ class Index extends React.Component {
   componentDidMount() {
     window.setTimeout(
       () => {
-        this.typePassword("＊＊＊＊＊＊＊＊＊＊＊＊").then(_ => {
-          document.querySelector("#submit").classList.add("complete")
-        }).then(_ => {
-          window.setTimeout(
-            () => {
-              document.querySelector("#login").classList.add("complete")
+        this.typePassword("＊＊＊＊＊＊＊").then(async(_) => {
+          await new Promise(resolve => {
+            window.setTimeout(
+              () => {
+                resolve()
+                document.querySelector("#submit").classList.add("complete")
+              }, "600"
+            )
+          }).then(async(_) => {
+            await new Promise(resolve => {
+              window.setTimeout(
+                () => {
+                  resolve()
+                  document.querySelector("#login").classList.add("complete")
+                }, "2000"
+              )
+            }).then(_ => {
               window.setTimeout(
                 () => {
                   document.querySelector("#background").classList.add("complete")
                 }, "400"
               )
-            }, "2000"
-          )
+            })
+          })
         })
       }, "2500"
     )
@@ -179,6 +190,7 @@ class Index extends React.Component {
                 position: relative;
                 height: 24px;
                 margin-right: 8px;
+                overflow: hidden;
               }
               &__form-background {
                 position: absolute;
@@ -291,15 +303,16 @@ class Index extends React.Component {
                   transform: scale(0.7);
                 }
                 .password {
-                  width: 96px;
+                  width: 120px;
                   &__form {
-                    height: 14px;
+                    height: 18px;
                     margin-right: 4px;
                   }
                   &__form-text {
-                    left: -10px;
+                    left: 4px;
                     font-size: 1.0rem;
-                    transform: translateY(-50%) scale(0.6);
+                    white-space: nowrap;
+                    transform: translateY(-50%);
                   }
                   &__submit {
                     height: 14px;
