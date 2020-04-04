@@ -1,6 +1,6 @@
 const Index = props => (
   <div>
-    Hello world!
+    Hello world! from zeit now
   </div>
 )
 
