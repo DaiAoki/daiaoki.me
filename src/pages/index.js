@@ -44,6 +44,7 @@ const Index = props => (
           width: 100%;
           background: linear-gradient(to right, rgb(243,240,229), rgb(233,225,218));
           position: relative;
+          overflow: hidden;
         }
         .desk {
           position: absolute;
