@@ -1,14 +1,15 @@
 import TerminalTemplate from '~/templates/TerminalTemplate'
 
-const Terminal = () => {
+const Contact = () => {
   return (
     <>
-      <TerminalTemplate pathname="terminal">
-        <p className="print">Hello, visitor!</p>
-        <p className="print">My name is DaiAoki. I'm Japanese software engineer.</p>
-        <p className="print">This is my portfolio page.</p>
+      <TerminalTemplate pathname="contact">
+        <p className="print">Welcome to contact page!</p>
         <br/>
-        <p className="print">Please have fun:)</p>
+        <p className="print">{`contact: \{`}</p>
+        <p className="print">  email: a.dai.0814ap@gmail.com,</p>
+        <p className="print">  twitter: https://twitter.com/DaiAoki30</p>
+        <p className="print">{`\}`}</p>
       </TerminalTemplate>
       <style jsx>
         {`
@@ -25,4 +26,4 @@ const Terminal = () => {
   )
 }
 
-export default Terminal
+export default Contact

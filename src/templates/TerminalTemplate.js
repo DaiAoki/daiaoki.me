@@ -3,14 +3,23 @@ import NavLink from 'next/link'
 const TerminalTemplate = props => (
   <>
     <main className="main">
+      <p className="pwd">/Users/daiaoki</p>
+      <p className="print">
+        <span className="lead">{"> "}</span>
+        <span>{`cd ${props.pathname === "terminal" ? '~' : props.pathname}`}</span>
+      </p>
       { props.children }
+      <br/>
+      <br/>
+      <br/>
+      <p className="print">Please select from the following!</p>
       <br/>
       <nav>
         <ul>
           <li>
             <NavLink href="/terminal">
               <a className={`print nav ${props.pathname === 'terminal' && 'active'}`}>
-                {`${props.pathname === "terminal" ? '  -> Top' : '    Terminal'}`}
+                {`${props.pathname === "terminal" ? '  -> Top' : '    Top'}`}
               </a>
             </NavLink>
           </li>
@@ -36,7 +45,7 @@ const TerminalTemplate = props => (
         </ul>
       </nav>
       <br/>
-      <p className="pwd">/Users/daiaoki</p>
+      <p className="pwd">{`/Users/daiaoki${props.pathname === "terminal" ? '' : '/' + props.pathname}`}</p>
       <p className="current">{">"}</p>
     </main>
     <style jsx>
@@ -69,6 +78,9 @@ const TerminalTemplate = props => (
         }
         .pwd {
           color: #4a37d4;
+        }
+        .lead {
+          color: #5fb9c5;
         }
         .current {
           display: flex;
