@@ -1,4 +1,7 @@
 import React from 'react'
+import Router from 'next/router'
+import 'dayjs/locale/ja'
+import dayjs from 'dayjs'
 import MockBookPro from '~/components/MockBookPro'
 import Mug from '~/components/Mug'
 import Outlet from '~/components/Outlet'
@@ -36,6 +39,10 @@ class Index extends React.Component {
     )
   }
 
+  componentWillUnmount() {
+    if(window.interval) window.clearInterval(window.interval)
+  }
+
   async typePassword(text) {
     const password = document.querySelector("#password")
     let len = text.length
@@ -51,8 +58,9 @@ class Index extends React.Component {
     })
   }
 
-  componentWillUnmount() {
-    if(window.interval) window.clearInterval(window.interval)
+  openTerminal() {
+    // ここでアニメーションして、別ページに遷移させる
+    Router.push('/terminal')
   }
 
   render() {
@@ -62,10 +70,23 @@ class Index extends React.Component {
           <MockBookPro style={{zIndex: 2}}>
             <div className="screen">
               <div id="background" className="background">
+                <header className="header">
+                  <nav className="navigation">
+                    <span className="apple">&#63743;</span>
+                    <span>DaiAoki's Portfolio</span>
+                  </nav>
+                  <div className="basic">
+                    <span><img src="/assets/images/wifi.svg" alt="wifi icon"/></span>
+                    <span><img src="/assets/images/volume.svg" alt="volume icon"/></span>
+                    <span>{ dayjs().format("M/D H:mm") }</span>
+                  </div>
+                </header>
                 <img src="/assets/images/mojave.jpg" alt="Mojave Wallpaper" className="background__image"/>
                 <ul className="icon-list">
                   <li className="icon-list__item">
-                    <img src="/assets/images/terminal.png" alt="Terminal icon"/>
+                    <a href="#" onClick={this.openTerminal}>
+                      <img src="/assets/images/terminal.png" alt="Terminal icon"/>
+                    </a>
                   </li>
                   <li className="icon-list__item">
                     <a href="https://github.com/DaiAoki" target="_blank">
@@ -166,6 +187,55 @@ class Index extends React.Component {
               position: relative;
               overflow: hidden;
             }
+            .header {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 16px;
+              background-color: #c6dff1;
+              z-index: 1;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              box-shadow: 4px 4px 4px 8px rgba(0,0,0,0.3);
+            }
+            .navigation {
+              display: flex;
+              align-items: center;
+              padding-left: 16px;
+              span {
+                display: inline-block;
+                font-size: 1.0rem;
+                font-weight: bold;
+                line-height: 1;
+                &.apple {
+                  font-size: 1.2rem;
+                }
+                &:not(:last-child) {
+                  margin-right: 16px;
+                }
+              }
+            }
+            .basic {
+              display: flex;
+              align-items: center;
+              padding-right: 16px;
+              span {
+                display: inline-block;
+                font-size: 1.0rem;
+                line-height: 1;
+                &:not(:last-child) {
+                  margin-right: 8px;
+                }
+                &:last-child {
+                  margin-left: 4px;
+                }
+                img {
+                  height: 12px;
+                }
+              }
+            }
             .background {
               height: 100%;
               width: 100%;
@@ -183,7 +253,7 @@ class Index extends React.Component {
             }
             .icon-list {
               position: absolute;;
-              top: 16px;
+              top: 40px;
               right: 16px;
               &__item {
                 height: 40px;
@@ -330,7 +400,7 @@ class Index extends React.Component {
                 }
               }
               .icon-list {
-                top: 12px;
+                top: 36px;
                 right: 12px;
                 &__item {
                   height: 32px;
@@ -383,8 +453,44 @@ class Index extends React.Component {
                   }
                 }
               }
+              .header {
+                height: 8px;
+                box-shadow: 2px 2px 2px 4px rgba(0,0,0,0.4);
+              }
+              .navigation {
+                padding-left: 4px;
+                span {
+                  font-size: 1.0rem;
+                  transform: scale(0.6);
+                  &.apple {
+                    font-size: 1.1rem;
+                  }
+                  &:not(:last-child) {
+                    margin-right: 4px;
+                  }
+                  &:last-child {
+                    margin-left: -16px;
+                  }
+                }
+              }
+              .basic {
+                padding-right: 4px;
+                span {
+                  font-size: 1.0rem;
+                  transform: scale(0.6);
+                  &:not(:last-child) {
+                    margin-right: 2px;
+                  }
+                  &:last-child {
+                    margin: 0 -8px 0 -6px;
+                  }
+                  img {
+                    height: 8px;
+                  }
+                }
+              }
               .icon-list {
-                top: 8px;
+                top: 24px;
                 right: 8px;
                 &__item {
                   height: 24px;
