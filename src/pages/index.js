@@ -63,9 +63,21 @@ class Index extends React.Component {
             <div className="screen">
               <div id="background" className="background">
                 <img src="/assets/images/mojave.jpg" alt="Mojave Wallpaper" className="background__image"/>
-                <div className="terminal">
-                  <img src="/assets/images/terminal.png" alt="Terminal icon"/>
-                </div>
+                <ul className="icon-list">
+                  <li className="icon-list__item">
+                    <img src="/assets/images/terminal.png" alt="Terminal icon"/>
+                  </li>
+                  <li className="icon-list__item">
+                    <a href="https://github.com/DaiAoki" target="_blank">
+                      <img src="/assets/images/github.png" alt="GitHub icon"/>
+                    </a>
+                  </li>
+                  <li className="icon-list__item">
+                    <a href="https://twitter.com/DaiAoki30" target="_blank">
+                      <img src="/assets/images/twitter.png" alt="Twitter icon"/>
+                    </a>
+                  </li>
+                </ul>
               </div>
               <div id="login" className="login">
                 <img src="/assets/images/icon.jpeg" alt="DaiAoki" className="icon"/>
@@ -169,15 +181,21 @@ class Index extends React.Component {
                 object-fit: cover;
               }
             }
-            .terminal {
+            .icon-list {
               position: absolute;;
               top: 16px;
               right: 16px;
-              height: 40px;
-              width: 40px;
-              img {
-                height: 100%;
-                width: 100%;
+              &__item {
+                height: 40px;
+                width: 40px;
+                &:not(:last-child) {
+                  margin-bottom: 16px;
+                }
+                img {
+                  height: 100%;
+                  width: 100%;
+                  filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.4));
+                }
               }
             }
             .login {
@@ -311,11 +329,16 @@ class Index extends React.Component {
                   }
                 }
               }
-              .terminal {
+              .icon-list {
                 top: 12px;
                 right: 12px;
-                height: 32px;
-                width: 32px;
+                &__item {
+                  height: 32px;
+                  width: 32px;
+                  &:not(:last-child) {
+                    margin-bottom: 12px;
+                  }
+                }
               }
             }
             @media screen and (max-width: 420px) {
@@ -360,11 +383,16 @@ class Index extends React.Component {
                   }
                 }
               }
-              .terminal {
+              .icon-list {
                 top: 8px;
                 right: 8px;
-                height: 32px;
-                width: 32px;
+                &__item {
+                  height: 24px;
+                  width: 24px;
+                  &:not(:last-child) {
+                    margin-bottom: 8px;
+                  }
+                }
               }
             }
           `}
