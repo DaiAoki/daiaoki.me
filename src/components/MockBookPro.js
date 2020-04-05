@@ -88,6 +88,8 @@ const MockBookPro = props => (
             }
           }
           &__name {
+            display: inline-flex;
+            justify-content: center;
             width: 100%;
             color: #c8cacb;
             background-color: #272626;

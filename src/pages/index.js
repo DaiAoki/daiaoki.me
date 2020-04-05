@@ -1,5 +1,7 @@
 import React from 'react'
 import MockBookPro from '~/components/MockBookPro'
+import Mug from '~/components/Mug'
+import Outlet from '~/components/Outlet'
 
 class Index extends React.Component {
   componentDidMount() {
@@ -57,7 +59,7 @@ class Index extends React.Component {
     return (
       <>
         <main className="main">
-          <MockBookPro style={{zIndex: 1}}>
+          <MockBookPro style={{zIndex: 2}}>
             <div className="screen">
               <div id="background" className="background">
                 <img src="/assets/images/mojave.jpg" alt="Mojave Wallpaper" className="background__image"/>
@@ -78,6 +80,12 @@ class Index extends React.Component {
               </div>
             </div>
           </MockBookPro>
+          <a href="https://www.buymeacoffee.com/daiaoki" target="_blank" className="mug-container">
+            <Mug/>
+          </a>
+          <div className="outlet-container">
+            <Outlet/>
+          </div>
           <div className="desk">
             <div className="desk__board"/>
             <div className="desk__board"/>
@@ -100,8 +108,25 @@ class Index extends React.Component {
               height: 100vh;
               width: 100%;
               background: linear-gradient(to right, rgb(243,240,229), rgb(233,225,218));
+              padding: 0 16px;
               position: relative;
               overflow: hidden;
+            }
+            .mug-container {
+              position: absolute;
+              top: 50%;
+              right: 0;
+              width: 15%;
+              max-width: 200px;
+              transform: translate(30%, 100%);
+              z-index: 2;
+            }
+            .outlet-container {
+              position: absolute;
+              top: 50%;
+              left: 4%;
+              transform: translateY(-100%);
+              width: 10%;
             }
             .desk {
               position: absolute;
@@ -292,54 +317,54 @@ class Index extends React.Component {
                 height: 32px;
                 width: 32px;
               }
-              @media screen and (max-width: 420px) {
-                .icon {
-                  height: 24px;
-                  width: 24px;
+            }
+            @media screen and (max-width: 420px) {
+              .icon {
+                height: 24px;
+                width: 24px;
+              }
+              .name {
+                font-size: 1.0rem;
+                margin: 4px 0 8px;
+                transform: scale(0.7);
+              }
+              .password {
+                width: 120px;
+                &__form {
+                  height: 18px;
+                  margin-right: 4px;
                 }
-                .name {
+                &__form-text {
+                  left: 4px;
                   font-size: 1.0rem;
-                  margin: 4px 0 8px;
-                  transform: scale(0.7);
+                  white-space: nowrap;
+                  transform: translateY(-50%);
                 }
-                .password {
-                  width: 120px;
-                  &__form {
-                    height: 18px;
-                    margin-right: 4px;
+                &__submit {
+                  height: 14px;
+                  width: 14px;
+                  min-width: 14px;
+                  flex-basis: 14px;
+                  transform: scale(0.8);
+                  &::before{
+                    left: 3px;
+                    width: 8px;
+                    height: 1px;
                   }
-                  &__form-text {
-                    left: 4px;
-                    font-size: 1.0rem;
-                    white-space: nowrap;
-                    transform: translateY(-50%);
-                  }
-                  &__submit {
-                    height: 14px;
-                    width: 14px;
-                    min-width: 14px;
-                    flex-basis: 14px;
-                    transform: scale(0.8);
-                    &::before{
-                      left: 3px;
-                      width: 8px;
-                      height: 1px;
-                    }
-                    &::after{
-                      left: 5px;
-                      width: 6px;
-                      height: 6px;
-                      border-top: 1px solid #5a5a5a;
-                      border-right: 1px solid #5a5a5a;
-                    }
+                  &::after{
+                    left: 5px;
+                    width: 6px;
+                    height: 6px;
+                    border-top: 1px solid #5a5a5a;
+                    border-right: 1px solid #5a5a5a;
                   }
                 }
-                .terminal {
-                  top: 8px;
-                  right: 8px;
-                  height: 32px;
-                  width: 32px;
-                }
+              }
+              .terminal {
+                top: 8px;
+                right: 8px;
+                height: 32px;
+                width: 32px;
               }
             }
           `}
