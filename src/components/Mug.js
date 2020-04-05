@@ -3,6 +3,9 @@ import React from 'react'
 const Mug = props => (
   <>
     <div className="mug">
+      <div className="steam">
+        <img src="/assets/images/steam.svg" alt="steam"/>
+      </div>
       <div className="mug__top">
         <div className="mug__top-inner-container">
           <div className="mug__top-inner"/>
@@ -16,6 +19,74 @@ const Mug = props => (
     </div>
     <style jsx>
       {`
+        .steam {
+          position: absolute;
+          top: 0;
+          left: 0;
+          animation: steam 5.5s infinite linear;
+          transition: all 1s;
+          z-index: 2;
+          img {
+            width: 50%;
+          }
+          @keyframes steam {
+            0% {
+              filter: blur(8px);
+              transform: rotateY(0deg);
+              transform: scale(1, 1);
+              opacity: 0.75;
+              top: 0;
+            }
+            30% {
+              transform: rotateY(32deg);
+              transform: scale(0.7, 1.3);
+            }
+            70% {
+              transform: rotateY(5deg);
+              transform: scaleY(1.3, 0.5);
+            }
+            100% {
+              filter: blur(18px);
+              transform: rotateY(40deg);
+              transform: scaleY(1.5, 1.2);
+              opacity: 0;
+              top: -200px;
+            }
+          }
+          @media screen and (max-width: 768px) {
+            .steam {
+              top: -20px;
+              animation: steam 3.5s infinite linear;
+              img {
+                width: 30%;
+              }
+            }
+            @keyframes steam {
+              0% {
+                filter: blur(8px);
+                transform: rotateY(0deg);
+                transform: scale(1, 1);
+                opacity: 0.75;
+                top: -20px;
+              }
+              30% {
+                transform: rotateY(32deg);
+                transform: scale(0.7, 1.3);
+              }
+              70% {
+                transform: rotateY(5deg);
+                transform: scaleY(1.3, 0.5);
+              }
+              100% {
+                filter: blur(18px);
+                transform: rotateY(40deg);
+                transform: scaleY(1.5, 1.2);
+                opacity: 0;
+                top: -40px;
+              }
+            }
+          }
+        }
         .mug {
           width: 100%;
           max-width: 300px;
@@ -90,6 +161,7 @@ const Mug = props => (
             @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@700&display=swap&text=Cofe');
             font-family: 'Yanone Kaffeesatz', sans-serif;
             color: #396;
+            z-index: 4;
           }
           &__bottom {
             position: absolute;
@@ -100,6 +172,7 @@ const Mug = props => (
             box-shadow: 0 -3px 2px 0px rgba(200,200,200,0.3) inset;
             border-radius: 50%;
             transform: translateY(50%);
+            z-index: 3;
             &:before {
               content: "";
               display: block;
