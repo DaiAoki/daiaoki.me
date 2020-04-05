@@ -58,9 +58,26 @@ class Index extends React.Component {
     })
   }
 
-  openTerminal() {
-    // ここでアニメーションして、別ページに遷移させる
-    Router.push('/terminal')
+  async openTerminal() {
+    await new Promise(resolve => {
+      document.querySelector("#terminal").classList.add("clicked")
+      resolve()
+    }).then(async(_) => {
+      await new Promise(resolve => {
+        window.setTimeout(
+          () => {
+            resolve()
+          }, "1000"
+        )
+      })
+    }).then(_ => {
+      document.querySelector("#new-window").classList.add("opened")
+      window.setTimeout(
+        () => {
+          Router.push('/terminal')
+        }, "600"
+      )
+    })
   }
 
   render() {
@@ -85,7 +102,7 @@ class Index extends React.Component {
                 <ul className="icon-list">
                   <li className="icon-list__item">
                     <a href="#" onClick={this.openTerminal}>
-                      <img src="/assets/images/terminal.png" alt="Terminal icon"/>
+                      <img src="/assets/images/terminal.png" alt="Terminal icon" id="terminal"/>
                     </a>
                   </li>
                   <li className="icon-list__item">
@@ -131,9 +148,24 @@ class Index extends React.Component {
             <div className="desk__board"/>
             <div className="desk__board"/>
           </div>
+          <div id="new-window" className="new-window"/>
         </main>
         <style jsx>
           {`
+            .new-window {
+              position: absolute;
+              height: 100vw;
+              width: 100vw;
+              top: 0;
+              right: 0;
+              background-color: #000;
+              z-index: 2;
+              transform: translateX(100%);
+              transition-duration: 0.6s;
+              &.opened {
+                transform: translateX(0);
+              }
+            }
             .main {
               display: flex;
               justify-content: center;
@@ -265,6 +297,9 @@ class Index extends React.Component {
                   height: 100%;
                   width: 100%;
                   filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.4));
+                  &.clicked {
+                    filter: brightness(0.6);
+                  }
                 }
               }
             }
