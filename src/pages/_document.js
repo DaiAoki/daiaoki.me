@@ -8,8 +8,10 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
-        <Head></Head>
+      <Html lang="ja">
+        <Head>
+          <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet"/>
+        </Head>
         <body style={{overflow: 'hidden'}}>
           <Main />
           <NextScript />
