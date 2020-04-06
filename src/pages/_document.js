@@ -47,7 +47,6 @@ class MyDocument extends Document {
           <link rel="manifest" href="/assets/images/favicons/manifest.json"/>
           <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
           <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet"/>
-          <title>DaiAoki's Portfolio</title>
         </Head>
         <body style={{overflow: 'hidden'}}>
           <Main />

@@ -1,9 +1,13 @@
+import Head from 'next/head'
 import Router from 'next/router'
 import css from 'styled-jsx/css'
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>DaiAoki's Portfolio</title>
+      </Head>
       <Component {...pageProps} />
       <style jsx global>{reset}</style>
       <style jsx global>{base}</style>

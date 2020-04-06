@@ -471,8 +471,10 @@ class Index extends React.Component {
                 }
                 &__submit {
                   height: 14px;
+                  max-height: 14px;
                   min-height: 14px;
                   width: 14px;
+                  max-width: 14px;
                   min-width: 14px;
                   flex-basis: 14px;
                   transform: scale(0.8);
