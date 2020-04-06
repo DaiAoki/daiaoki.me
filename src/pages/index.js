@@ -59,6 +59,7 @@ class Index extends React.Component {
   }
 
   async openTerminal() {
+    if(!document.querySelector("#background").classList.contains("complete")) return
     await new Promise(resolve => {
       document.querySelector("#terminal").classList.add("clicked")
       resolve()
@@ -154,7 +155,7 @@ class Index extends React.Component {
           {`
             .new-window {
               position: absolute;
-              height: 100vw;
+              height: 100vh;
               width: 100vw;
               top: 0;
               right: 0;
@@ -470,6 +471,7 @@ class Index extends React.Component {
                 }
                 &__submit {
                   height: 14px;
+                  min-height: 14px;
                   width: 14px;
                   min-width: 14px;
                   flex-basis: 14px;

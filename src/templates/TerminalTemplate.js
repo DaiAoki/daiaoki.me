@@ -24,9 +24,23 @@ const TerminalTemplate = props => (
             </NavLink>
           </li>
           <li>
-            <NavLink href="/about">
-              <a className={`print nav ${props.pathname === 'about' && 'active'}`}>
-                {`${props.pathname === "about" ? '  -> About' : '    About'}`}
+            <NavLink href="/career">
+              <a className={`print nav ${props.pathname === 'career' && 'active'}`}>
+                {`${props.pathname === "career" ? '  -> Career' : '    Career'}`}
+              </a>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink href="/project">
+              <a className={`print nav ${props.pathname === 'project' && 'active'}`}>
+                {`${props.pathname === "project" ? '  -> Project' : '    Project'}`}
+              </a>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink href="/skillset">
+              <a className={`print nav ${props.pathname === 'skillset' && 'active'}`}>
+                {`${props.pathname === "skillset" ? '  -> Skillset' : '    Skillset'}`}
               </a>
             </NavLink>
           </li>

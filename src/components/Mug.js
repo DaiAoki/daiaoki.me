@@ -14,7 +14,6 @@ const Mug = props => (
       <div className="mug__holding">
         <div className="mug__holding-inner"/>
       </div>
-      <div className="mug__label">Coffee</div>
       <div className="mug__bottom"/>
     </div>
     <style jsx>
@@ -151,18 +150,6 @@ const Mug = props => (
             box-shadow: 1px 3px 9px 4px rgba(160,160,160,1.0);
             border-radius: 0 60% 100% 0;
           }
-          &__label {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-80%, -50%);
-            font-weight: bold;
-            font-size: 4.6rem;
-            @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@700&display=swap&text=Cofe');
-            font-family: 'Yanone Kaffeesatz', sans-serif;
-            color: #396;
-            z-index: 4;
-          }
           &__bottom {
             position: absolute;
             bottom: 0;
@@ -180,20 +167,10 @@ const Mug = props => (
             }
           }
         }
-        @media screen and (max-width: 1042px) {
-          .mug {
-            &__label {
-              font-size: 3.8rem;
-            }
-          }
-        }
         @media screen and (max-width: 768px) {
           .mug {
             &__holding-inner {
               box-shadow: 1px 2px 5px 2px #c0c0c0;
-            }
-            &__label {
-              font-size: 2.2rem;
             }
           }
         }
@@ -201,9 +178,6 @@ const Mug = props => (
           .mug {
             &__holding-inner {
               box-shadow: 1px 2px 5px 2px #c0c0c0;
-            }
-            &__label {
-              font-size: 1.6rem;
             }
           }
         }
