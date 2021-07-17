@@ -72,14 +72,14 @@ const Career = () => {
         <p className="print">      Chatform ( closed )</p>
         <br/>
         <p className="print">  Bullz inc. 2019.10 ~</p>
-        <p className="print">    Role: Chief Technical Officer</p>
+        <p className="print">    Role: Chief Technical Officer, Business Manager(Crunch)</p>
         <p className="print">    Service</p>
         <p className="print">      andHatch: Online salon for videographer(Web)</p>
-        <p className="print">      SocialAnalyst: Instagram Analytics(Web)</p>
-        <p className="print">      CreativeHunt: Video production management(Web)</p>
-        <p className="print">    TypeScript</p>
-        <p className="print">    GCK</p>
-        <p className="print">    CloudFormation</p>
+        <p className="print">      SocialAnalyst: Instagram Analytics(Web) ( closed )</p>
+        <p className="print">      Crunch: Video production management(Web)</p>
+        <p className="print">    Ruby on Rails</p>
+        <p className="print">    React(TypeScript)</p>
+        <p className="print">    AWS</p>
         <p className="print">    ...and more</p>
       </TerminalTemplate>
       <style jsx>

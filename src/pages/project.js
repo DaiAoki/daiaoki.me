@@ -14,11 +14,17 @@ const Project = () => {
         <p className="print">  andHatch</p>
         <p className="print">    -> <a href="https://andhatch.com" target="_blank">https://andhatch.com</a></p>
         <br/>
-        <p className="print">  SocialAnalyst</p>
-        <p className="print">    -> <a href="https://social-analyst.com" target="_blank">https://social-analyst.com</a></p>
+        <p className="print">  CheatSheet</p>
+        <p className="print">    -> <a href="https://web-cheatsheet.com/" target="_blank">https://web-cheatsheet.com/</a></p>
         <br/>
-        <p className="print">  CreativeHunt</p>
-        <p className="print">    -> in development</p>
+        <p className="print">  BookHub</p>
+        <p className="print">    -> close</p>
+        <br/>
+        <p className="print">  SocialAnalyst</p>
+        <p className="print">    -> close</p>
+        <br/>
+        <p className="print">  Crunch</p>
+        <p className="print">    -> closedβ</p>
         <br/>
         <p className="print">  ...and more</p>
       </TerminalTemplate>

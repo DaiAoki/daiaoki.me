@@ -115,6 +115,11 @@ class Index extends React.Component {
                     <a href="https://twitter.com/DaiAoki30" target="_blank">
                       <img src="/assets/images/twitter.png" alt="Twitter icon"/>
                     </a>
+                 </li>
+                 <li className="icon-list__item">
+                    <a href="https://www.youtube.com/channel/UCEqEYF_OPL5__IcyT1OOEWw" target="_blank">
+                      <img src="/assets/images/youtube.png" alt="YouTube icon"/>
+                    </a>
                   </li>
                 </ul>
               </div>
